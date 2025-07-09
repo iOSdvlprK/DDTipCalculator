@@ -12,15 +12,26 @@ struct PaymentSummaryView: View {
     let split: Int
     let bill: Double
     
-    // TODO: calculate based on inputs
+    var tip: Double {
+        bill * Double(tipPercentage) / 100.0
+    }
+    var total: Double {
+        bill + tip
+    }
+    // TODO: localize
+    func formattedAmount(value: Double, split: Int) -> String {
+        let newValue = value / Double(split)
+        return "$\(newValue.formatted())"
+    }
+    
     var totalPerPerson: String {
-        "300"
+        formattedAmount(value: total, split: split)
     }
     var billPerPerson: String {
-        "250"
+        formattedAmount(value: bill, split: split)
     }
     var tipPerPerson: String {
-        "50"
+        formattedAmount(value: tip, split: split)
     }
     
     // iPad Support
@@ -63,10 +74,7 @@ struct PaymentSummaryView: View {
         RoundedRectangle(cornerRadius: 20)
             .fill(.blue.opacity(0.3))
         
-        RoundedRectangle(cornerRadius: 20)
-            .fill(.red.opacity(0.3))
-        
-        PaymentSummaryView(tipPercentage: 20, split: 2, bill: 500)
+        PaymentSummaryView(tipPercentage: 10, split: 3, bill: 100)
     }
     .padding()
 }
