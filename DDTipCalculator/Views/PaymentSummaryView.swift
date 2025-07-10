@@ -18,10 +18,16 @@ struct PaymentSummaryView: View {
     var total: Double {
         bill + tip
     }
-    // TODO: localize
+    
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
+    
     func formattedAmount(value: Double, split: Int) -> String {
         let newValue = value / Double(split)
-        return "$\(newValue.formatted())"
+        return formatter.string(from: NSNumber(value: newValue)) ?? "$0"
     }
     
     var totalPerPerson: String {
