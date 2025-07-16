@@ -19,14 +19,14 @@ struct SineWaveView: View {
     
     var body: some View {
         SineWave()
-//            .fill(fillColor.gradient)
-//            .shadow(color: fillColor, radius: 3, x: 3, y: 3)
-//            .frame(height: amplitude)
-//            .onAppear {
-//                withAnimation(.bouncy(duration: 2, extraBounce: 0.05)) {
-//                    amplitude = height
-//                }
-//            }
+            .fill(fillColor.gradient)
+            .shadow(color: fillColor, radius: 3, x: 3, y: 3)
+            .frame(height: amplitude)
+            .onAppear {
+                withAnimation(.bouncy(duration: 2, extraBounce: 0.05)) {
+                    amplitude = height
+                }
+            }
     }
 }
 
