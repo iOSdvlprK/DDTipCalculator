@@ -23,8 +23,7 @@ struct TipCalculatorView: View {
             BackgroundView()
             
             VStack {
-                // TODO: title view
-                Text("Title View")
+                TitleView()
                 
                 Spacer()
                 
