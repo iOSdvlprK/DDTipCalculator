@@ -32,8 +32,8 @@ struct TipCalculatorView: View {
                     
                     ChooseTipView(tipPercentage: $tipModel.tipPercentage)
                 }
-                // TODO: split view
-                Text("Split View")
+                
+                SplitView(split: $tipModel.split, alignment: .leading)
                 
                 Spacer()
                 
