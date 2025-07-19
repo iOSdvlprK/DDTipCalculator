@@ -11,7 +11,8 @@ import SwiftUI
 struct DDTipCalculatorApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+//            MainView()
+            TipCalculatorView()
         }
     }
 }
