@@ -22,26 +22,22 @@ struct LandscapeTipCalculatorView: View {
         ZStack {
             BackgroundView()
             
-            VStack {
-                TitleView()
-                
-                Spacer()
-                
+            HStack {
                 VStack(alignment: .leading) {
+                    TitleView()
+                    
                     EnterTotalView(bill: $tipModel.bill, isFocused: $isFocused)
                     
-                    ChooseTipView(tipPercentage: $tipModel.tipPercentage)
+                    HStack {
+                        ChooseTipView(tipPercentage: $tipModel.tipPercentage)
+                        
+                        SplitView(split: $tipModel.split, alignment: .center)
+                    }
                 }
-                
-                SplitView(split: $tipModel.split, alignment: .leading)
-                
-                Spacer()
                 
                 // payment summary
                 if !isFocused {
                     PaymentSummaryView(tipModel: tipModel)
-                    
-                    Spacer()
                 }
             }
             .padding()
@@ -59,6 +55,6 @@ struct LandscapeTipCalculatorView: View {
     }
 }
 
-#Preview {
+#Preview("Landscape", traits: .landscapeLeft) {
     LandscapeTipCalculatorView()
 }
